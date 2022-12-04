@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from dotenv import load_dotenv
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 import os
 
 
@@ -34,13 +35,40 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'material',
+    'material.admin',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'core',
+
 ]
+
+MATERIAL_ADMIN_SITE = {
+    'HEADER':  _('HOSPITAL UNIVERSITÁRIO LAURO WANDERLEY'),  # Admin site header
+    'TITLE':  _('hulw'),  # Admin site title
+    'FAVICON':  'base/logo.ico',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR':  '#8bc649',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#929497',  # Admin site main hover color, css color should be specified
+    #'PROFILE_PICTURE':  'base/unnamed.jpg',  # Admin site profile picture (path to static should be specified)
+    'PROFILE_BG':  'base/logoverde.jpg',  # Admin site profile background (path to static should be specified)
+    #'LOGIN_LOGO':  'base/unnamed.jpg',  # Admin site logo on login page (path to static should be specified)
+    'LOGOUT_BG':  'base/logoverde.jpg',  # Admin site background on login/logout pages (path to static should be specified)
+    #'SHOW_THEMES':  True,  #  Show default admin themes button
+    'TRAY_REVERSE': False,  # Hide object-tools and additional-submit-line by default
+    'NAVBAR_REVERSE': True,  # Hide side navbar by default
+    #'SHOW_COUNTS': True, # Show instances counts for each model
+    # 'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
+    #     'sites': 'send',
+    # },
+    # 'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
+    #     'site': 'contact_mail',
+    # }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,8 +106,10 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tratamento',
+        'USER': 'postgres',
+        'PASSWORD': 'password'
     }
 }
 
@@ -121,6 +151,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/admin/login/'
+
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = '/admin/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
