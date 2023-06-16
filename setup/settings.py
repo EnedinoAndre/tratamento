@@ -49,17 +49,17 @@ INSTALLED_APPS = [
 ]
 
 MATERIAL_ADMIN_SITE = {
-    'HEADER':  _('HOSPITAL UNIVERSITÁRIO LAURO WANDERLEY'),  # Admin site header
-    'TITLE':  _('hulw'),  # Admin site title
-    'FAVICON':  'base/logo.ico',  # Admin site favicon (path to static should be specified)
-    'MAIN_BG_COLOR':  '#8bc649',  # Admin site main color, css color should be specified
+    'HEADER':  _('MEDICINA FAMILIAR'),  # Admin site header
+    'TITLE':  _('clinica'),  # Admin site title
+    'FAVICON':  'base/logo_clinica.png',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR':  '#003d3b',  # Admin site main color, css color should be specified
     'MAIN_HOVER_COLOR':  '#929497',  # Admin site main hover color, css color should be specified
     #'PROFILE_PICTURE':  'base/unnamed.jpg',  # Admin site profile picture (path to static should be specified)
-    'PROFILE_BG':  'base/logoverde.jpg',  # Admin site profile background (path to static should be specified)
+    'PROFILE_BG':  'base/nome_da_clinica.png',  # Admin site profile background (path to static should be specified)
     #'LOGIN_LOGO':  'base/unnamed.jpg',  # Admin site logo on login page (path to static should be specified)
-    'LOGOUT_BG':  'base/logoverde.jpg',  # Admin site background on login/logout pages (path to static should be specified)
+    'LOGOUT_BG':  'base/nome_da_clinica.png',  # Admin site background on login/logout pages (path to static should be specified)
     #'SHOW_THEMES':  True,  #  Show default admin themes button
-    'TRAY_REVERSE': False,  # Hide object-tools and additional-submit-line by default
+    'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     'NAVBAR_REVERSE': True,  # Hide side navbar by default
     #'SHOW_COUNTS': True, # Show instances counts for each model
     # 'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
